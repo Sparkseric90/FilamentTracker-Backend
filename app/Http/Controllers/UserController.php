@@ -28,9 +28,10 @@ class UserController extends Controller
     public function create(Request $request)
     {
          $validator = Validator::make($request->all(), [
-            'email' => 'required|email|max:64',
-            'password' => 'required|string|min:8',
             'name' => 'required|string',
+            'email' => 'required|email|max:64',
+            'password' => 'required|string|min:8'
+
         ]);
 
         if($validator->fails()){
@@ -39,11 +40,10 @@ class UserController extends Controller
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-        /**creates new user */
         $user = User::create($input);
 
                 /**Take note of this: Your user authentication access token is generated here **/
-        $data['token'] =  $user->createToken('FilamentTracker-Backend')->accessToken;
+        $data['token'] =  $user->createToken('FilamentTracker')->accessToken;
         $data['user_data'] = $user;
 
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
