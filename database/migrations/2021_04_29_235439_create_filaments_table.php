@@ -13,13 +13,12 @@ class CreateFilamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('filaments', function (Blueprint $table) {
+        Schema::create('filament', function (Blueprint $table) {
             $table->id();
-            $table->string('filament_id');
             $table->string('brand');
             $table->string('color');
             $table->float('numberofrolls');
-            $table->integer('status');
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateFilamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filaments');
+        Schema::dropIfExists('filament');
     }
 }

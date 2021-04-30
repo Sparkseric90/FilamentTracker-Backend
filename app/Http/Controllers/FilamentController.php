@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Filaments;
+use App\Models\Filament;
 use Illuminate\Http\Request;
 
-class FilamentsController extends Controller
+class FilamentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class FilamentsController extends Controller
      */
     public function index()
     {
-        return Filaments::all();
+        return Filament::all();
     }
 
     /**
@@ -22,13 +22,16 @@ class FilamentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $filaments = Filaments::factory()->make();
-        $filaments->brands = $request->brands;
+        $filament = Filament::factory()->make();
+        $filament->brand = $request->brand;
+        $filament->color = $request->color;
+        $filament->numberofrolls = $request->numberofrolls;
+        $filament->status = $request->status;
 
-        $filaments->save();
-        return $filaments
+        $filament->save();
+        return $filament;
     }
 
     /**
@@ -45,53 +48,50 @@ class FilamentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Filaments  $filaments
+     * @param  \App\Models\Filament  $filaments
      * @return \Illuminate\Http\Response
      */
-    public function show(Filaments $filaments)
+    public function show($id)
     {
-        return Filaments::find($id);
+        return Filament::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Filaments  $filaments
+     * @param  \App\Models\Filament  $filaments
      * @return \Illuminate\Http\Response
      */
-    public function edit(Filaments $filaments)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Filaments  $filaments
+     * @param  \App\Models\Filament  $filament
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Filaments $filaments)
+    public function update(Request $request, $id)
     {
-        $filaments = Filaments::find($id);
+        $filament = Filament::find($id);
 
-        $filaments->brand = $request->brand;
-        $filaments->color = $request->color;
-        $filaments->numberofrolls = $request->numberofrolls;
-        $filaments->status = $request->status;
+        $filament->brand = $request->brand;
+        $filament->color = $request->color;
+        $filament->numberofrolls = $request->numberofrolls;
+        $filament->status = $request->status;
 
-        $filaments->save();
-        return $filaments;
+
+        $filament->save();
+        return ($filament);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Filaments  $filaments
+     * @param  \App\Models\Filament  $filaments
      * @return \Illuminate\Http\Response
      */
-    public function delete(Filaments $filaments)
+    public function delete($id)
     {
-        Filaments::find($id)->delete();
+        Filament::find($id)->delete();
     }
 }

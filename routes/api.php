@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', [UserController::class, 'create']);
 
 
-Route::get('/filament/all', [App\Http\Controllers\FilamentControler::class, 'index']);
-Route::post('/filament/new', [App\Http\Controllers\FilamentControler::class, 'create']);
-Route::post('/filament/update{id}', [App\Http\Controllers\FilamentControler::class, 'update']);
-Route::post('/filament/delete/{id}', [App\Http\Controllers\FilamentControler::class, 'delete']);
+Route::get('/filament/all', [App\Http\Controllers\FilamentController::class, 'index']);
+Route::post('/filament/new', [App\Http\Controllers\FilamentController::class, 'create']);
+Route::post('/filament/update/{id}', [App\Http\Controllers\FilamentController::class, 'update']);
+Route::post('/filament/delete/{id}', [App\Http\Controllers\FilamentController::class, 'delete']);

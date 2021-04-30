@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Filaments extends Model
+class Filament extends Model
 {
     use HasFactory;
-    protected $table = 'filaments';
-    protected $primaryKey = "id";
+    protected $table = 'filament';
+    protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestampe = true;
 }
