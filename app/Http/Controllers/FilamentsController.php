@@ -14,7 +14,7 @@ class FilamentsController extends Controller
      */
     public function index()
     {
-        //
+        return Filaments::all();
     }
 
     /**
@@ -24,7 +24,11 @@ class FilamentsController extends Controller
      */
     public function create()
     {
-        //
+        $filaments = Filaments::factory()->make();
+        $filaments->brands = $request->brands;
+
+        $filaments->save();
+        return $filaments
     }
 
     /**
@@ -46,7 +50,7 @@ class FilamentsController extends Controller
      */
     public function show(Filaments $filaments)
     {
-        //
+        return Filaments::find($id);
     }
 
     /**
@@ -69,7 +73,15 @@ class FilamentsController extends Controller
      */
     public function update(Request $request, Filaments $filaments)
     {
-        //
+        $filaments = Filaments::find($id);
+
+        $filaments->brand = $request->brand;
+        $filaments->color = $request->color;
+        $filaments->numberofrolls = $request->numberofrolls;
+        $filaments->status = $request->status;
+
+        $filaments->save();
+        return $filaments;
     }
 
     /**
@@ -78,8 +90,8 @@ class FilamentsController extends Controller
      * @param  \App\Models\Filaments  $filaments
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Filaments $filaments)
+    public function delete(Filaments $filaments)
     {
-        //
+        Filaments::find($id)->delete();
     }
 }

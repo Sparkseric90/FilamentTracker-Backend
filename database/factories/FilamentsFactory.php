@@ -22,7 +22,11 @@ class FilamentsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'filament_id' => $this->faker->realText($this->faker->numberBetween(10, 20)),
+            'brand' => $this->faker->text,
+            'color' => $this->faker->randomColor,
+            'numberofrols' => $this->faker->numberBetween(1, 20),
+            'status' => $this->faker->boolean
         ];
     }
 }
