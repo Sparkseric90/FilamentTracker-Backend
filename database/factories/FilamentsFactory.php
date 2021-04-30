@@ -23,9 +23,9 @@ class FilamentsFactory extends Factory
     {
         return [
             'filament_id' => $this->faker->realText($this->faker->numberBetween(10, 20)),
-            'brand' => $this->faker->text,
-            'color' => $this->faker->randomColor,
-            'numberofrols' => $this->faker->numberBetween(1, 20),
+            'brand' => $this->faker->word,
+            'color' => $this->faker->word,
+            'numberofrolls' => $this->faker->numberBetween(10, 20),
             'status' => $this->faker->boolean
         ];
     }

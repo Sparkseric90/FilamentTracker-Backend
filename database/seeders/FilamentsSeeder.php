@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Filaments;
 use Illuminate\Database\Seeder;
 
 class FilamentsSeeder extends Seeder
@@ -13,6 +14,6 @@ class FilamentsSeeder extends Seeder
      */
     public function run()
     {
-        Filaments::factory()->count(10)->create();
+        Filaments::factory()->count(5)->create();
     }
 }
