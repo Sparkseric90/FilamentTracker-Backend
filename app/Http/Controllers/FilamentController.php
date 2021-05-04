@@ -54,9 +54,10 @@ class FilamentController extends Controller
      * @param  \App\Models\Filament  $filaments
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function get($id)
     {
         return Filament::find($id);
+
     }
 
     /**
