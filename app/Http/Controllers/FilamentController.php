@@ -26,8 +26,11 @@ class FilamentController extends Controller
     {
         $filament = Filament::factory()->make();
         $filament->brand = $request->brand;
+        $filament->type = $request->type;
         $filament->color = $request->color;
         $filament->numberofrolls = $request->numberofrolls;
+        $filament->weight = $request->weight;
+        $filament->notes = $request->notes;
         $filament->status = $request->status;
 
         $filament->save();
@@ -75,8 +78,11 @@ class FilamentController extends Controller
         $filament = Filament::find($id);
 
         $filament->brand = $request->brand;
+        $filament->type = $request->type;
         $filament->color = $request->color;
         $filament->numberofrolls = $request->numberofrolls;
+        $filament->weight = $request->weight;
+        $filament->notes = $request->notes;
         $filament->status = $request->status;
 
 

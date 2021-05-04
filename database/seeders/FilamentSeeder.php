@@ -14,6 +14,6 @@ class FilamentSeeder extends Seeder
      */
     public function run()
     {
-        Filament::factory()->count(5)->create();
+        Filament::factory()->count(10)->create();
     }
 }

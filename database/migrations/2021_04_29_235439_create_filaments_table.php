@@ -16,8 +16,11 @@ class CreateFilamentsTable extends Migration
         Schema::create('filament', function (Blueprint $table) {
             $table->id();
             $table->string('brand');
+            $table->string('type');
             $table->string('color');
             $table->float('numberofrolls');
+            $table->string('weight');
+            $table->string('notes');
             $table->integer('status')->nullable();
             $table->timestamps();
         });

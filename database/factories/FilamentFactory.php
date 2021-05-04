@@ -23,8 +23,11 @@ class FilamentFactory extends Factory
     {
         return [
             'brand' => $this->faker->word,
+            'type' => $this->faker->word,
             'color' => $this->faker->word,
             'numberofrolls' => $this->faker->numberBetween(10, 20),
+            'weight' => $this->faker->numberbetween(0, 2.2),
+            'notes' => $this->faker->text,
             'status' => $this->faker->boolean
         ];
     }
