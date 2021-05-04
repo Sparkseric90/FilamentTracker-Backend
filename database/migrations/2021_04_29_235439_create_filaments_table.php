@@ -21,7 +21,6 @@ class CreateFilamentsTable extends Migration
             $table->float('numberofrolls');
             $table->string('weight');
             $table->string('notes');
-            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

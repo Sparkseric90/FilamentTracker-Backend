@@ -15,6 +15,7 @@ class FilamentController extends Controller
     public function index()
     {
         return Filament::all();
+
     }
 
     /**
@@ -31,7 +32,7 @@ class FilamentController extends Controller
         $filament->numberofrolls = $request->numberofrolls;
         $filament->weight = $request->weight;
         $filament->notes = $request->notes;
-        $filament->status = $request->status;
+
 
         $filament->save();
         return $filament;
@@ -84,7 +85,7 @@ class FilamentController extends Controller
         $filament->numberofrolls = $request->numberofrolls;
         $filament->weight = $request->weight;
         $filament->notes = $request->notes;
-        $filament->status = $request->status;
+
 
 
         $filament->save();
@@ -100,5 +101,6 @@ class FilamentController extends Controller
     public function delete($id)
     {
         Filament::find($id)->delete();
+
     }
 }

@@ -23,6 +23,7 @@ Route::post('/register', [UserController::class, 'create']);
 
 
 Route::get('/filament/all', [App\Http\Controllers\FilamentController::class, 'index']);
+Route::get('/filament/{id}', [App\Http\Controllers\FilamentController::class, 'get']);
 Route::post('/filament/new', [App\Http\Controllers\FilamentController::class, 'create']);
-Route::put('/filament/update/{id}', [App\Http\Controllers\FilamentController::class, 'update']);
-Route::delete('/filament/delete/{id}', [App\Http\Controllers\FilamentController::class, 'delete']);
+Route::post('/filament/update/{id}', [App\Http\Controllers\FilamentController::class, 'update']);
+Route::post('/filament/delete/{id}', [App\Http\Controllers\FilamentController::class, 'delete']);
