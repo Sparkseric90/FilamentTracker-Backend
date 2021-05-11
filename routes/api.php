@@ -17,6 +17,10 @@ use App\Http\Controllers\UserController;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+  
+Route::get('/user', [UserController::class, 'index']);
+    // log out user
+Route::get('/logout', [UserController::class, 'logout']);
 });
 
 Route::post('/register', [UserController::class, 'create']);
