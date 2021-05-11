@@ -17,12 +17,17 @@ use App\Http\Controllers\UserController;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+  
+Route::get('/user', [UserController::class, 'index']);
+    // log out user
+Route::get('/logout', [UserController::class, 'logout']);
 });
 
 Route::post('/register', [UserController::class, 'create']);
 
 
-Route::get('/filament/all', [App\Http\Controllers\FilamentControler::class, 'index']);
-Route::post('/filament/new', [App\Http\Controllers\FilamentControler::class, 'create']);
-Route::post('/filament/update{id}', [App\Http\Controllers\FilamentControler::class, 'update']);
-Route::post('/filament/delete/{id}', [App\Http\Controllers\FilamentControler::class, 'delete']);
+Route::get('/filament/all', [App\Http\Controllers\FilamentController::class, 'index']);
+Route::get('/filament/{id}', [App\Http\Controllers\FilamentController::class, 'get']);
+Route::post('/filament/new', [App\Http\Controllers\FilamentController::class, 'create']);
+Route::post('/filament/update/{id}', [App\Http\Controllers\FilamentController::class, 'update']);
+Route::post('/filament/delete/{id}', [App\Http\Controllers\FilamentController::class, 'delete']);
